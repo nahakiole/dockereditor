@@ -45,6 +45,10 @@
         .form-control.notfilled {
             background-color: #ff00002e;
         }
+
+        small a {
+            white-space: break-spaces;
+        }
     </style>
 
 </head>
@@ -68,7 +72,7 @@
 
         <div class="container pt-1 pb-5 ">
 
-            <div class="col-md-8 offset-2 mt-4 ">
+            <div class="col-md-8 offset-md-2 mt-4 ">
                 <h1>Docker Editor</h1>
                 <p>
                     A novel, magical tool is at your disposal: The Docker Command Editor! It’s like a secret decoder ring for Docker run commands found in tutorials. Mystifying parameters such as <code>-v</code>, <code>-p</code>, <code>--net</code> and more, are decoded to offer insightful explanations right in your browser.
@@ -114,8 +118,8 @@
                     <p>{{helptext[param.parameter].description}}</p>
                     <pre>{{helptext[param.parameter].example}}</pre>
                     <pre v-if="helptext[param.parameter].example2">{{helptext[param.parameter].example2}}</pre>
-                    <a v-bind:href="helptext[param.parameter].link"
-                       target="_blank">{{helptext[param.parameter].link}}</a>
+                    <small><a v-bind:href="helptext[param.parameter].link"
+                       target="_blank">{{helptext[param.parameter].link.replace("https://", "")}}</a></small>
                 </div>
 
                 <input class="form-control bg-opacity-25" v-model="param.parameter"/>
